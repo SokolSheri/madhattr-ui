@@ -2,18 +2,18 @@ import axios from "axios";
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
 
-function Hat() {
+function Jacket() {
 
-    const [ident, setIdent] = useState(0);
+    const [ident, setIdent] = useState("");
 
     const handleChange = (evt) => {
         setIdent(evt.target.value);
+        console.log(typeof(ident));
     }
-
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        const { data } = await axios.get(`http://localhost:8080/hats/${ident}`);
-        console.log(data);
+        // const { data } = await axios.get(`http://localhost:8080/jackets/${ident}`);
+        // console.log(data);
     }
 
     return (
@@ -21,10 +21,10 @@ function Hat() {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input type='number' min="0" onChange={(e) => handleChange(e)} />
                 <br/>
-                <Button type='submit' variant="contained">Get Single Hat</Button>
+                <Button type='submit' variant="contained">Get Single Jacket</Button>
             </form>
         </div>
     );
 }
 
-export default Hat;
+export default Jacket;

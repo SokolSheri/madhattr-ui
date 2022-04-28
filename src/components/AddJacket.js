@@ -22,7 +22,7 @@ function AddJacket() {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         console.log(`${jacketType} - ${jacketColor} - ${jacketSize}`);
-        // await axios.post("http://localhost:8080/jackets", { color: jacketColor, type: jacketType, size: jacketSize })
+        //await axios.post("http://localhost:8080/jackets", { color: jacketColor, type: jacketType, size: jacketSize })
     }
 
     return (

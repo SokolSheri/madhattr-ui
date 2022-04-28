@@ -19,10 +19,14 @@ function AddHat() {
         setHatDesc(evt.target.value)
     }
 
-    const handleSubmit = async(evt) => {
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
-        await axios.post("http://localhost:8080/hats", {color: hatColor,type: hatType, description: hatDesc})
-        
+        try {
+            await axios.post("http://madhattr-application-route-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/hats", { color: hatColor, type: hatType, description: hatDesc });
+            alert('Hat added!')
+        } catch (e) {
+            alert('Error');
+        }
     }
 
     return (
@@ -34,7 +38,7 @@ function AddHat() {
             <br />
             <textarea id='desc' onChange={(e) => handleChangeDesc(e)} />
             <br />
-            <Button variant="contained">Add Hat</Button>
+            <Button type='submit' variant="contained">Add Hat</Button>
         </form>
     );
 }
