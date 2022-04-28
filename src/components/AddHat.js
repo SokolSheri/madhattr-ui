@@ -36,8 +36,6 @@ function AddHat() {
             <br />
             <Button variant="contained">Add Hat</Button>
         </form>
-
-        
     );
 }
 
