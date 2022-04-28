@@ -1,7 +1,24 @@
 import axios from "axios";
-import { Button, TextField } from '@mui/material';
+import { Button, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@mui/material';
 import React, { useState } from 'react';
 
+// const styledTable = {
+//     borderCollapse: "collapse",
+//     margin: "25px 0",
+//     fontSize: "0.9em",
+//     fontFamily: "sans-serif",
+//     minWidth: "400px",
+//     boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)"
+//   }
+
+// .styled-table {
+//     border-collapse: collapse;
+//     margin: 25px 0;
+//     font-size: 0.9em;
+//     font-family: sans-serif;
+//     min-width: 400px;
+//     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+// }
 
 function Jacket() {
     const [ident, setIdent] = useState("");
@@ -27,7 +44,7 @@ function Jacket() {
 
     let row = <tr></tr>
     if (item != '') {
-        row = <tr><td>{item.color}</td><td>{item.type}</td><td>{item.description}</td></tr>
+        //row = <tr><td>{item.color}</td><td>{item.type}</td><td>{item.description}</td></tr>
     }
 
     return (

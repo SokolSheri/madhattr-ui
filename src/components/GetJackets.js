@@ -4,8 +4,14 @@ import React, { useState } from 'react';
 
 let tableContainerStyle = {
     overflowY: 'scroll',
-    height: 0
+    height: 0,
+   
 }
+
+// let tableStyle = {
+//     border:"1px solid black",
+    
+// }
 
 function Jackets() {
     const [gotData, setData] = useState([])

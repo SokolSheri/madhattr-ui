@@ -4,7 +4,12 @@ import React, { useState } from 'react';
 
 let tableContainerStyle = {
     overflowY: 'scroll',
-    height: 0
+    height: 0,
+}
+
+const thStyle = {
+    margin:10,
+    border: '1px solid rgba(0, 0, 0, 0.05)'
 }
 
 function Hats() {
@@ -14,7 +19,8 @@ function Hats() {
         setData(data);
         tableContainerStyle = {
             overflowY: 'scroll',
-            height: 300
+            height: 300,
+            border:"1px solid black"
         }
     }
     
@@ -26,14 +32,14 @@ function Hats() {
                 <table>
                     <tbody>
                     <tr>
-                        <th>Color</th><th>Type</th><th>Description</th>
+                        <th style={{thStyle}}>Color</th><th style={{thStyle}}>Type</th><th style={{thStyle}}>Description</th>
                     </tr>
                         {gotData.map((el) => {
                             return (
                                 <tr key={el.id}>
-                                    <td>{el.color}</td>
-                                    <td>{el.type}</td>
-                                    <td>{el.description}</td>
+                                    <td style={{paddingRight:10,border:'1px solid black'}}>{el.color}</td>
+                                    <td style={{margin:10}}>{el.type}</td>
+                                    <td style={{margin:10}}>{el.description}</td>
                                 </tr>
                             )
                         })}
