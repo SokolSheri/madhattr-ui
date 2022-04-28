@@ -32,10 +32,13 @@ function AddHat() {
     return (
         <form onSubmit={(evt) => handleSubmit(evt)}>
             <br />
+            <label for='color'>Color</label><br/>
             <input type='text' id='color' onChange={(e) => handleChangeColor(e)} />
             <br />
+            <label for='color'>Type</label><br/>
             <input type='text' name='hatType' onChange={(e) => handleChangeType(e)} />
             <br />
+            <label for='color'>Description</label><br/>
             <textarea id='desc' onChange={(e) => handleChangeDesc(e)} />
             <br />
             <Button type='submit' variant="contained">Add Hat</Button>

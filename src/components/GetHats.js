@@ -7,21 +7,15 @@ let tableContainerStyle = {
     height: 0
 }
 
-
 function Hats() {
     const [gotData, setData] = useState([])
-
     const getAllHats = async () => {
-
         const { data } = await axios.get("http://madhattr-application-route-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/hats");
         setData(data);
         tableContainerStyle = {
             overflowY: 'scroll',
             height: 300
         }
-
-
-
     }
     
     return (

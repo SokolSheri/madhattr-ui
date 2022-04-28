@@ -28,10 +28,13 @@ function AddJacket() {
     return (
         <form onSubmit={(evt) => handleSubmit(evt)}>
             <br />
+            <label for='color'>Color</label><br/>
             <input type='text' id='color' onChange={(e) => handleChangeColor(e)} />
             <br />
+            <label for='color'>Type</label><br/>
             <input type='text' name='jacketType' onChange={(e) => handleChangeType(e)} />
             <br />
+            <label for='size'>Size</label><br/>
             <select id='size' onChange={(e) => handleChangeSize(e)} >
                 <option value='XS'>XS</option>
                 <option value='S'>S</option>
@@ -40,7 +43,7 @@ function AddJacket() {
                 <option value='XL'>XL</option>
             </select>
 
-            <br />
+            <br /><br/>
             <Button type='submit' variant="contained">Add Jacket</Button>
         </form>
 

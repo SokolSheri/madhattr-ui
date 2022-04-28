@@ -12,14 +12,20 @@ function App() {
         Hats
       </h1>
       <AddHat />
+      <br/>
       <Hats />
+      <br/>
       <Hat />
+      <br/>
       <h1>
         Jackets
       </h1>
       <AddJacket />
+      <br/>
       <Jackets />
+      <br/>
       <Jacket />
+      <br/>
     </div>
   );
 }
