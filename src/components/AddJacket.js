@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Button } from '@mui/material';
+import { Button, TextField, Select, MenuItem, InputLabel } from '@mui/material';
 
 function AddJacket() {
     const [jacketType, setJacketType] = useState('');
@@ -28,22 +28,38 @@ function AddJacket() {
     return (
         <form onSubmit={(evt) => handleSubmit(evt)}>
             <br />
-            <label for='color'>Color</label><br/>
-            <input type='text' id='color' onChange={(e) => handleChangeColor(e)} />
+            {/* <input type='text' id='color' onChange={(e) => handleChangeColor(e)} /> */}
+            <TextField id="outlined-basic" label="Color" variant="outlined" onChange={(e) => handleChangeColor(e)} />
             <br />
-            <label for='color'>Type</label><br/>
-            <input type='text' name='jacketType' onChange={(e) => handleChangeType(e)} />
             <br />
-            <label for='size'>Size</label><br/>
-            <select id='size' onChange={(e) => handleChangeSize(e)} >
+            {/* <label for='color'>Type</label><br/> */}
+            <TextField id="outlined-basic" label="Type" variant="outlined" onChange={(e) => handleChangeType(e)} />
+            {/* <input type='text' name='jacketType' onChange={(e) => handleChangeType(e)} /> */}
+            <br />
+            {/* <label for='size'>Size</label><br/> */}
+            <InputLabel id="demo-simple-select-label">Sizes</InputLabel>
+            <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                onChange={(e) => handleChangeSize(e)}
+                label='Sizes'
+                defaultValue={""}
+            >
+                <MenuItem value={'XS'}>XS</MenuItem>
+                <MenuItem value={'S'}>S</MenuItem>
+                <MenuItem value={'M'}>M</MenuItem>
+                <MenuItem value={'L'}>L</MenuItem>
+                <MenuItem value={'XL'}>XL</MenuItem>
+            </Select>
+            {/* <select id='size' onChange={(e) => handleChangeSize(e)} >
                 <option value='XS'>XS</option>
                 <option value='S'>S</option>
                 <option value='M'>M</option>
                 <option value='L'>L</option>
                 <option value='XL'>XL</option>
-            </select>
+            </select> */}
 
-            <br /><br/>
+            <br /><br />
             <Button type='submit' variant="contained">Add Jacket</Button>
         </form>
 

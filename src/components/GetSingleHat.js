@@ -1,17 +1,11 @@
 import axios from "axios";
-import { Button } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
 
 function Hat() {
 
     const [ident, setIdent] = useState(0);
     const [item, setItem] = useState('');
-    // let hat = (<table>
-    //     <tbody>
-    //         <tr><th>Color</th><th>Type</th><th>Description</th></tr>
-    //     </tbody>
-    // </table>);
-
     const handleChange = (evt) => {
         setIdent(evt.target.value);
     }
@@ -34,7 +28,8 @@ function Hat() {
     return (
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <input type='number' min="0" onChange={(e) => handleChange(e)} />
+            <TextField id="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
+                {/* <input type='number' min="0" onChange={(e) => handleChange(e)} /> */}
                 <br />
                 <Button type='submit' variant="contained">Get Single Hat</Button>
                 <table>

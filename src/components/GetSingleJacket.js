@@ -1,6 +1,7 @@
 import axios from "axios";
-import { Button } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
+
 
 function Jacket() {
     const [ident, setIdent] = useState("");
@@ -10,13 +11,18 @@ function Jacket() {
         setIdent(evt.target.value);
     }
     const handleSubmit = async (evt) => {
-        evt.preventDefault();
-        const res = await axios.get(`http://madhattr-application-route-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets/${ident}`);
-        if (res.data) {
-            setItem(res.data);
-        } else {
-            alert('Jacket does not exist');
+        try {
+            evt.preventDefault();
+            const res = await axios.get(`http://madhattr-application-route-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets/${ident}`);
+            if (res.data) {
+                setItem(res.data);
+            } else {
+                alert('Jacket does not exist');
+            }
+        } catch (e) {
+            alert('Request failure')
         }
+
     }
 
     let row = <tr></tr>
@@ -27,7 +33,8 @@ function Jacket() {
     return (
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <input type='number' min="0" onChange={(e) => handleChange(e)} />
+                <TextField id="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
+                {/* <input type='number' min="0" onChange={(e) => handleChange(e)} /> */}
                 <br />
                 <Button type='submit' variant="contained">Get Single Jacket</Button>
                 <table>
