@@ -26,6 +26,7 @@ function AddJacket() {
     const handleSubmit = async (evt) => {
         evt.preventDefault();
         await axios.post("http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets", { color: jacketColor, type: jacketType, size: jacketSize })
+        alert('Jacket added')
     }
 
     return (
