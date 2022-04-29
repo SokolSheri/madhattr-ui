@@ -19,21 +19,21 @@ function AddJacket() {
         setJacketSize(evt.target.value)
     }
 
-    const handleSubmit = (evt) => {
+    const handleSubmit = async(evt) => {
         evt.preventDefault();
-        console.log(`${jacketType} - ${jacketColor} - ${jacketSize}`);
-        //await axios.post("http://localhost:8080/jackets", { color: jacketColor, type: jacketType, size: jacketSize })
+        // console.log(`${jacketType} - ${jacketColor} - ${jacketSize}`);
+        await axios.post("http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets", { color: jacketColor, type: jacketType, size: jacketSize })
     }
 
     return (
         <form onSubmit={(evt) => handleSubmit(evt)}>
             <br />
-            {/* <input type='text' id='color' onChange={(e) => handleChangeColor(e)} /> */}
-            <TextField id="outlined-basic" label="Color" variant="outlined" onChange={(e) => handleChangeColor(e)} />
+            {/* <input type=n'text' id='color' onChange={(e) => handleChangeColor(e)} /> */}
+            <TextField className="outlined-basic" label="Color" variant="outlined" onChange={(e) => handleChangeColor(e)} />
             <br />
             <br />
             {/* <label for='color'>Type</label><br/> */}
-            <TextField id="outlined-basic" label="Type" variant="outlined" onChange={(e) => handleChangeType(e)} />
+            <TextField className="outlined-basic" label="Type" variant="outlined" onChange={(e) => handleChangeType(e)} />
             {/* <input type='text' name='jacketType' onChange={(e) => handleChangeType(e)} /> */}
             <br />
             {/* <label for='size'>Size</label><br/> */}

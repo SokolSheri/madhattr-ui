@@ -8,10 +8,13 @@ let tableContainerStyle = {
    
 }
 
-// let tableStyle = {
-//     border:"1px solid black",
-    
-// }
+const tableStyle = {
+    fontFamily: "arial, sans-serif",
+    borderCollapse: "collapse",
+    width: "100%",
+}
+
+const columnsStyle = { border: "1px solid #dddddd", textAlign: "left", padding: "8px" }
 
 function Jackets() {
     const [gotData, setData] = useState([])
@@ -29,10 +32,10 @@ function Jackets() {
         <div>
             <Button variant="contained" onClick={() => getAllJackets()}>Get Jackets</Button>
             <div style={tableContainerStyle}>
-                <table>
+                <table style={tableStyle}>
                     <tbody>
                         <tr>
-                            <th>ID</th><th>Color</th><th>Type</th><th>Description</th>
+                            <th style={columnsStyle}>ID</th><th style={columnsStyle}>Color</th><th style={columnsStyle}>Type</th><th style={columnsStyle}>Size</th>
                         </tr>
                         {gotData.map((el) => {
                             return (
@@ -41,8 +44,6 @@ function Jackets() {
                                     <td>{el.color}</td>
                                     <td>{el.type}</td>
                                     <td>{el.size}</td>
-                                    
-
                                 </tr>
                             )
                         })}

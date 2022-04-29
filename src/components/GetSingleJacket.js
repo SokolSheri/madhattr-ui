@@ -20,6 +20,12 @@ import React, { useState } from 'react';
 //     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 // }
 
+const table = {
+    fontFamily: "arial, sans-serif",
+    borderCollapse: "collapse",
+    width: "100%"
+  }
+
 function Jacket() {
     const [ident, setIdent] = useState("");
     const [item, setItem] = useState('');
@@ -51,11 +57,11 @@ function Jacket() {
     return (
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <TextField id="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
+                <TextField className="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
                 {/* <input type='number' min="0" onChange={(e) => handleChange(e)} /> */}
                 <br />
                 <Button type='submit' variant="contained">Get Single Jacket</Button>
-                <table>
+                <table style={{table}}>
                     <tbody>
                         <tr><th>ID</th><th>Color</th><th>Type</th><th>Size</th></tr>
                         {row}

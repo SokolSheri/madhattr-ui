@@ -21,27 +21,27 @@ function AddHat() {
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        try {
-            await axios.post("http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/hats", { color: hatColor, type: hatType, description: hatDesc });
-            alert('Hat added!')
-        } catch (e) {
-            alert('Error');
-        }
+        // try {
+            await axios.post("http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/hats", { color: hatColor, type: hatType, description : hatDesc })
+           // alert('Hat added!')
+        // } catch (e) {
+        //     alert('Error');
+        // }
     }
 
     return (
         <form onSubmit={(evt) => handleSubmit(evt)}>
             <br />
             {/* <label for='color'>Color</label><br/> */}
-            <TextField id="outlined-basic" label="Color" variant="outlined" onChange={(e) => handleChangeColor(e)}/><br/>
+            <TextField className="outlined-basic" label="Color" variant="outlined" onChange={(e) => handleChangeColor(e)}/><br/>
             {/* <input type='text' id='color' onChange={(e) => handleChangeColor(e)} /> */}
             <br />
             {/* <label for='color'>Type</label><br/> */}
-            <TextField id="outlined-basic" label="Type" variant="outlined" onChange={(e) => handleChangeType(e)}/><br/>
+            <TextField className="outlined-basic" label="Type" variant="outlined" onChange={(e) => handleChangeType(e)}/><br/>
             {/* <input type='text' name='hatType' onChange={(e) => handleChangeType(e)} /> */}
             <br />
             {/* <label for='color'>Description</label><br/> */}
-            <TextField id="outlined-basic" label="Description" variant="outlined" onChange={(e) => handleChangeDesc(e)}/><br/>
+            <TextField className="outlined-basic" label="Description" variant="outlined" onChange={(e) => handleChangeDesc(e)}/><br/>
             {/* <textarea id='desc' onChange={(e) => handleChangeDesc(e)} /> */}
             <br />
             <Button type='submit' variant="contained">Add Hat</Button>

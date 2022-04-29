@@ -1,16 +1,21 @@
 import axios from "axios";
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
+import { color } from "@mui/system";
 
 let tableContainerStyle = {
     overflowY: 'scroll',
     height: 0,
 }
 
-const thStyle = {
-    margin:10,
-    border: '1px solid rgba(0, 0, 0, 0.05)'
+const tableStyle = {
+    fontFamily: "arial, sans-serif",
+    borderCollapse: "collapse",
+    width: "100%",
 }
+
+const columnsStyle = { border: "1px solid #dddddd", textAlign: "left", padding: "8px" }
+
 
 function Hats() {
     const [gotData, setData] = useState([])
@@ -20,26 +25,32 @@ function Hats() {
         tableContainerStyle = {
             overflowY: 'scroll',
             height: 300,
-            border:"1px solid black"
+            border: "1px solid black"
         }
     }
-    
+
     return (
         <div >
             <Button variant="contained" onClick={() => getAllHats()}>Get Hats</Button>
             <div style={tableContainerStyle}>
                 {/* <table style={tableStyle}> */}
-                <table>
+                <table style={ tableStyle }>
                     <tbody>
-                    <tr>
-                        <th>ID</th><th style={{thStyle}}>Color</th><th style={{thStyle}}>Type</th><th style={{thStyle}}>Description</th>
-                    </tr>
+                        <tr>
+                            <th style={columnsStyle}>ID</th><th style={columnsStyle}>Color</th><th style={columnsStyle}>Type</th><th style={{columnsStyle}}>Description</th>
+                        </tr>
                         {gotData.map((el) => {
+                            let desc = el.description;
+                            if(!desc){
+                                desc = 'None'
+                            }
                             return (
                                 <tr key={el.id}>
-                                    <td>{el.id}</td>
-                                    <td style={{paddingRight:10,border:'1px solid black'}}>{el.color}</td>
-                                    <td style={{margin:10}}>{el.type}</td>
+                                    <td style={columnsStyle}>{el.id}</td>
+                                    <td style={columnsStyle}>{el.color}</td>
+                                    <td style={columnsStyle}>{el.type}</td>
+                                    <td style={columnsStyle}>{desc}</td>
+
                                 </tr>
                             )
                         })}
