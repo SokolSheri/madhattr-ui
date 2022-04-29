@@ -40,10 +40,10 @@ function Jackets() {
                         {gotData.map((el) => {
                             return (
                                 <tr key={el.id}>
-                                    <td>{el.id}</td>
-                                    <td>{el.color}</td>
-                                    <td>{el.type}</td>
-                                    <td>{el.size}</td>
+                                    <td style={columnsStyle}>{el.id}</td>
+                                    <td style={columnsStyle}>{el.color}</td>
+                                    <td style={columnsStyle}>{el.type}</td>
+                                    <td style={columnsStyle}>{el.size}</td>
                                 </tr>
                             )
                         })}

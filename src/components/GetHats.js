@@ -25,8 +25,13 @@ function Hats() {
         tableContainerStyle = {
             overflowY: 'scroll',
             height: 300,
-            border: "1px solid black"
+          
         }
+    }
+
+    const handleDelete = async(id) =>{
+        console.log(id);
+        a
     }
 
     return (
@@ -37,7 +42,7 @@ function Hats() {
                 <table style={ tableStyle }>
                     <tbody>
                         <tr>
-                            <th style={columnsStyle}>ID</th><th style={columnsStyle}>Color</th><th style={columnsStyle}>Type</th><th style={{columnsStyle}}>Description</th>
+                            <th style={columnsStyle}>ID</th><th style={columnsStyle}>Color</th><th style={columnsStyle}>Type</th><th style={columnsStyle}>Description</th><th style={columnsStyle}>Delete</th>
                         </tr>
                         {gotData.map((el) => {
                             let desc = el.description;
@@ -50,7 +55,7 @@ function Hats() {
                                     <td style={columnsStyle}>{el.color}</td>
                                     <td style={columnsStyle}>{el.type}</td>
                                     <td style={columnsStyle}>{desc}</td>
-
+                                    <td style={columnsStyle}><button onClick={() => handleDelete(el.id)}>Delete</button></td>
                                 </tr>
                             )
                         })}
