@@ -47,6 +47,7 @@ function AddJacket() {
             >
                 <MenuItem value={'XS'}>XS</MenuItem>
                 <MenuItem value={'S'}>S</MenuItem>
+                <MenuItem value={'XM'}>XM</MenuItem>
                 <MenuItem value={'M'}>M</MenuItem>
                 <MenuItem value={'L'}>L</MenuItem>
                 <MenuItem value={'XL'}>XL</MenuItem>

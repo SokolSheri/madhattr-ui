@@ -30,7 +30,8 @@ function Jacket() {
     const handleSubmit = async (evt) => {
         try {
             evt.preventDefault();
-            const res = await axios.get(`http://madhattr-application-route-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets/${ident}`);
+            const res = await axios.get(`http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets/${ident}`);
+            //console.log(res)
             if (res.data) {
                 setItem(res.data);
             } else {
@@ -44,7 +45,7 @@ function Jacket() {
 
     let row = <tr></tr>
     if (item != '') {
-        //row = <tr><td>{item.color}</td><td>{item.type}</td><td>{item.description}</td></tr>
+        row = <tr><td>{item.id}</td><td>{item.color}</td><td>{item.type}</td><td>{item.size}</td></tr>
     }
 
     return (
@@ -56,7 +57,7 @@ function Jacket() {
                 <Button type='submit' variant="contained">Get Single Jacket</Button>
                 <table>
                     <tbody>
-                        <tr><th>Color</th><th>Type</th><th>Description</th></tr>
+                        <tr><th>ID</th><th>Color</th><th>Type</th><th>Size</th></tr>
                         {row}
                     </tbody>
                 </table>

@@ -22,7 +22,7 @@ function AddHat() {
     const handleSubmit = async (evt) => {
         evt.preventDefault();
         try {
-            await axios.post("http://madhattr-application-route-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/hats", { color: hatColor, type: hatType, description: hatDesc });
+            await axios.post("http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/hats", { color: hatColor, type: hatType, description: hatDesc });
             alert('Hat added!')
         } catch (e) {
             alert('Error');

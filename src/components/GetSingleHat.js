@@ -12,7 +12,7 @@ function Hat() {
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        const res = await axios.get(`http://madhattr-application-route-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/hats/${ident}`);
+        const res = await axios.get(`http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/hats/${ident}`);
         if (res.data) {
             setItem(res.data);
         } else {
@@ -22,7 +22,7 @@ function Hat() {
 
 
     let row = <tr></tr>
-    if(item!=''){
+    if(item!==''){
         row = <tr><td>{item.color}</td><td>{item.type}</td><td>{item.description}</td></tr>
     }
     return (

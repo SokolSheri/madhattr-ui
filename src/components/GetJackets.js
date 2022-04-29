@@ -16,7 +16,7 @@ let tableContainerStyle = {
 function Jackets() {
     const [gotData, setData] = useState([])
     const getAllJackets = async () => {
-        const { data } = await axios.get("http://madhattr-application-route-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets");
+        const { data } = await axios.get("http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets");
         setData(data);
         tableContainerStyle = {
             overflowY: 'scroll',
@@ -32,14 +32,17 @@ function Jackets() {
                 <table>
                     <tbody>
                         <tr>
-                            <th>Color</th><th>Type</th><th>Description</th>
+                            <th>ID</th><th>Color</th><th>Type</th><th>Description</th>
                         </tr>
                         {gotData.map((el) => {
                             return (
                                 <tr key={el.id}>
+                                    <td>{el.id}</td>
                                     <td>{el.color}</td>
                                     <td>{el.type}</td>
-                                    <td>{el.description}</td>
+                                    <td>{el.size}</td>
+                                    
+
                                 </tr>
                             )
                         })}
