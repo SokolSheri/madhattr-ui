@@ -11,6 +11,14 @@ const tableStyle = {
 
 const columnsStyle = { border: "1px solid #dddddd", textAlign: "left", padding: "8px" }
 
+const inputStyle = { backgroundColor: "#f8f8ff", margin: '10px' }
+
+const headers = {
+    fontFamily: "Georgia, sans-serif",
+    fontSize: "1.5em",
+    margin:"10px"
+  }
+
 function Hat() {
     const [ident, setIdent] = useState(0);
     const [item, setItem] = useState('');
@@ -21,11 +29,16 @@ function Hat() {
     const handleSubmit = async (evt) => {
         evt.preventDefault();
         const res = await axios.get(`http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/hats/${ident}`);
+       
+     try{
         if (res.data) {
             setItem(res.data);
         } else {
             alert('Hat does not exist');
         }
+     }catch(e){
+        alert('Request failure')
+     }
     }
 
     const handleDelete = async (id) => {
@@ -43,10 +56,12 @@ function Hat() {
     }
     return (
         <div>
+            <h1 style={headers}>Find a hat with id</h1>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <TextField style={{backgroundColor: "#f8f8ff",margin:'10px'}} id="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
+                <TextField style={inputStyle} id="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
                 <br />
-                <Button style={{margin:'10px'}} type='submit' variant="contained">Get Single Hat</Button>
+                <Button style={{ margin: '10px' }} type='submit' variant="contained">Get Single Hat</Button>
+                <br />
                 <table style={tableStyle}>
                     <tbody>
                         <tr><th style={columnsStyle}>Color</th><th style={columnsStyle}>Type</th><th style={columnsStyle}>Description</th><th style={columnsStyle}>Delete</th></tr>

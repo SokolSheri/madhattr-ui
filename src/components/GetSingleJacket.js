@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Button, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@mui/material';
+import { Button, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import React, { useState } from 'react';
 
 const tableStyle = {
@@ -9,7 +9,15 @@ const tableStyle = {
     backgroundColor: "#f8f8ff"
 }
 
+const headers = {
+    fontFamily: "Georgia, sans-serif",
+    fontSize: "1.5em",
+    margin:"10px"
+  }
+
 const columnsStyle = { border: "1px solid #dddddd", textAlign: "left", padding: "8px" }
+
+const inputStyle = { backgroundColor: "#f8f8ff", margin: '10px' }
 
 function Jacket() {
     const [ident, setIdent] = useState("");
@@ -33,8 +41,9 @@ function Jacket() {
 
     }
 
-    const handleDelete = async(id) =>{
+    const handleDelete = async (id) => {
         await axios.delete(`http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets/${id}`)
+        alert('Jacket deleted');
     }
 
     let row = <tr></tr>
@@ -44,12 +53,14 @@ function Jacket() {
 
     return (
         <div>
+            <h1 style={headers}>Find a jacket with id</h1>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <TextField style={{backgroundColor: "#f8f8ff",margin:'10px'}} className="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
-                {/* <input type='number' min="0" onChange={(e) => handleChange(e)} /> */}
+                <TextField style={inputStyle} className="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
                 <br />
-                <Button style={{margin:'10px'}} type='submit' variant="contained">Get Single Jacket</Button>
-                <table style={ tableStyle }>
+                <Button style={{ margin: '10px' }} type='submit' variant="contained">Get Single Jacket</Button>
+                <br />
+                <br/>
+                <table style={tableStyle}>
                     <tbody>
                         <tr><th style={columnsStyle}>ID</th><th style={columnsStyle}>Color</th><th style={columnsStyle}>Type</th><th style={columnsStyle}>Size</th><th style={columnsStyle}>Delete</th></tr>
                         {row}

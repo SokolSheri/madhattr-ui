@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Button, TextField } from '@mui/material';
 
 const divStyle = { borderRadius: "5px", backgroundColor: "#f8f8ff", padding: "20px", display: 'flex', justifyContent: 'center', alignItems: 'center' }
+const forms = { display: 'flex', justifyContent: 'center', padding: 10 }
+const flex = { display: 'flex', justifyContent: 'center' }
 
 function AddHat() {
     const [hatType, setHatType] = useState('');
@@ -32,9 +34,9 @@ function AddHat() {
     }
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={flex}>
             <div style={divStyle}>
-                <form style={{ display: 'flex', justifyContent: 'center', padding: '10px' }} onSubmit={(evt) => handleSubmit(evt)}>
+                <form style={forms} onSubmit={(evt) => handleSubmit(evt)} id='myForm'>
                     <br />
 
                     <div>
@@ -44,8 +46,8 @@ function AddHat() {
                         <br />
                         <TextField className="outlined-basic" label="Description" variant="outlined" onChange={(e) => handleChangeDesc(e)} /><br />
                         <br />
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <Button type='submit' variant="contained">Add Hat</Button>
+                        <div style={flex}>
+                            <Button type='submit' variant="contained">Add Hat</Button>
                         </div>
                     </div>
                 </form>

@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Button, TextField, Select, MenuItem, InputLabel } from '@mui/material';
 
 const divStyle = { borderRadius: "5px", backgroundColor: "#f8f8ff", padding: "20px", display: 'flex', justifyContent: 'center', alignItems: 'center' }
+const forms = { display: 'flex', justifyContent: 'center', padding: 10 }
+const flex = { display: 'flex', justifyContent: 'center' }
 
 function AddJacket() {
     const [jacketType, setJacketType] = useState('');
@@ -28,7 +30,7 @@ function AddJacket() {
 
     return (
 
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={flex}>
             <div style={divStyle}>
                 <form onSubmit={(evt) => handleSubmit(evt)}>
                     <br />
@@ -44,6 +46,7 @@ function AddJacket() {
                         onChange={(e) => handleChangeSize(e)}
                         label='Sizes'
                         style={{width:'100%'}}
+                        value={jacketSize}
                     >
                         <MenuItem value={'XS'}>XS</MenuItem>
                         <MenuItem value={'S'}>S</MenuItem>
@@ -53,7 +56,7 @@ function AddJacket() {
                         <MenuItem value={'XL'}>XL</MenuItem>
                     </Select>
                     <br /><br />
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div style={flex}>
                         <Button type='submit' variant="contained">Add Jacket</Button>
                     </div>
                 </form>

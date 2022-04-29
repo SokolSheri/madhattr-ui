@@ -27,6 +27,10 @@ function Jackets() {
         }
     }
 
+    const handleDelete = async(id) => {
+        await axios.delete(`http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets/${id}`)
+        alert('Jacket deleted')
+    }
 
     return (
         <div>
@@ -35,7 +39,7 @@ function Jackets() {
                 <table style={tableStyle}>
                     <tbody>
                         <tr>
-                            <th style={columnsStyle}>ID</th><th style={columnsStyle}>Color</th><th style={columnsStyle}>Type</th><th style={columnsStyle}>Size</th>
+                            <th style={columnsStyle}>ID</th><th style={columnsStyle}>Color</th><th style={columnsStyle}>Type</th><th style={columnsStyle}>Size</th><th style={columnsStyle}>Delete</th>
                         </tr>
                         {gotData.map((el) => {
                             return (
@@ -44,6 +48,7 @@ function Jackets() {
                                     <td style={columnsStyle}>{el.color}</td>
                                     <td style={columnsStyle}>{el.type}</td>
                                     <td style={columnsStyle}>{el.size}</td>
+                                    <td style={columnsStyle}><button onClick={() => handleDelete(el.id)}>Delete</button></td>
                                 </tr>
                             )
                         })}
