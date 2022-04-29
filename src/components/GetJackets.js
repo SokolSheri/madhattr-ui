@@ -4,14 +4,14 @@ import React, { useState } from 'react';
 
 let tableContainerStyle = {
     overflowY: 'scroll',
-    height: 0,
-   
+    height: 0  
 }
 
 const tableStyle = {
     fontFamily: "arial, sans-serif",
     borderCollapse: "collapse",
     width: "100%",
+    backgroundColor: "#f8f8ff"
 }
 
 const columnsStyle = { border: "1px solid #dddddd", textAlign: "left", padding: "8px" }
@@ -30,7 +30,7 @@ function Jackets() {
 
     return (
         <div>
-            <Button variant="contained" onClick={() => getAllJackets()}>Get Jackets</Button>
+            <Button style={{margin:'10px'}} variant="contained" onClick={() => getAllJackets()}>Get Jackets</Button>
             <div style={tableContainerStyle}>
                 <table style={tableStyle}>
                     <tbody>
@@ -47,8 +47,6 @@ function Jackets() {
                                 </tr>
                             )
                         })}
-
-                        {/* <button onClick={() => getAllHats()}>Get Hats</button> */}
                     </tbody>
                 </table>
             </div>

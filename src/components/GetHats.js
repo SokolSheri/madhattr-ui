@@ -11,6 +11,7 @@ const tableStyle = {
     fontFamily: "arial, sans-serif",
     borderCollapse: "collapse",
     width: "100%",
+    backgroundColor: "#f8f8ff"
 }
 
 const columnsStyle = { border: "1px solid #dddddd", textAlign: "left", padding: "8px" }
@@ -33,9 +34,8 @@ function Hats() {
 
     return (
         <div >
-            <Button variant="contained" onClick={() => getAllHats()}>Get Hats</Button>
+            <Button style={{margin:'10px'}} variant="contained" onClick={() => getAllHats()}>Get Hats</Button>
             <div style={tableContainerStyle}>
-                {/* <table style={tableStyle}> */}
                 <table style={ tableStyle }>
                     <tbody>
                         <tr>
@@ -56,8 +56,6 @@ function Hats() {
                                 </tr>
                             )
                         })}
-
-                        {/* <button onClick={() => getAllHats()}>Get Hats</button> */}
                     </tbody>
                 </table>
             </div>

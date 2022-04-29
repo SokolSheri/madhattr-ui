@@ -2,16 +2,14 @@ import axios from "axios";
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
 
-
-
 const tableStyle = {
     fontFamily: "arial, sans-serif",
     borderCollapse: "collapse",
     width: "100%",
+    backgroundColor: "#f8f8ff"
 }
 
 const columnsStyle = { border: "1px solid #dddddd", textAlign: "left", padding: "8px" }
-
 
 function Hat() {
     const [ident, setIdent] = useState(0);
@@ -46,10 +44,9 @@ function Hat() {
     return (
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <TextField id="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
-                {/* <input type='number' min="0" onChange={(e) => handleChange(e)} /> */}
+                <TextField style={{backgroundColor: "#f8f8ff",margin:'10px'}} id="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
                 <br />
-                <Button type='submit' variant="contained">Get Single Hat</Button>
+                <Button style={{margin:'10px'}} type='submit' variant="contained">Get Single Hat</Button>
                 <table style={tableStyle}>
                     <tbody>
                         <tr><th style={columnsStyle}>Color</th><th style={columnsStyle}>Type</th><th style={columnsStyle}>Description</th><th style={columnsStyle}>Delete</th></tr>

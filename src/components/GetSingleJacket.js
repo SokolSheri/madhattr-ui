@@ -2,15 +2,11 @@ import axios from "axios";
 import { Button, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@mui/material';
 import React, { useState } from 'react';
 
-let tableContainerStyle = {
-    overflowY: 'scroll',
-    height: 0,
-}
-
 const tableStyle = {
     fontFamily: "arial, sans-serif",
     borderCollapse: "collapse",
     width: "100%",
+    backgroundColor: "#f8f8ff"
 }
 
 const columnsStyle = { border: "1px solid #dddddd", textAlign: "left", padding: "8px" }
@@ -26,7 +22,6 @@ function Jacket() {
         try {
             evt.preventDefault();
             const res = await axios.get(`http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets/${ident}`);
-            //console.log(res)
             if (res.data) {
                 setItem(res.data);
             } else {
@@ -50,10 +45,10 @@ function Jacket() {
     return (
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <TextField className="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
+                <TextField style={{backgroundColor: "#f8f8ff",margin:'10px'}} className="outlined-basic" label="Identifier" variant="outlined" type='number' min="0" onChange={(e) => handleChange(e)} /><br />
                 {/* <input type='number' min="0" onChange={(e) => handleChange(e)} /> */}
                 <br />
-                <Button type='submit' variant="contained">Get Single Jacket</Button>
+                <Button style={{margin:'10px'}} type='submit' variant="contained">Get Single Jacket</Button>
                 <table style={ tableStyle }>
                     <tbody>
                         <tr><th style={columnsStyle}>ID</th><th style={columnsStyle}>Color</th><th style={columnsStyle}>Type</th><th style={columnsStyle}>Size</th><th style={columnsStyle}>Delete</th></tr>

@@ -5,29 +5,37 @@ import AddJacket from "./components/AddJacket";
 import Hat from "./components/GetSingleHat";
 import Jacket from "./components/GetSingleJacket";
 
-const row ={ display: "flex" }
-const column= { flex: "50%", padding: "10px", height: "300px" }
+const headers = {
+  fontFamily: "Georgia, sans-serif",
+  fontSize: "2em",
+  letterSpacing: "-2px",
+  margin:"10px"
+}
 function App() {
   return (
     <div>
-      <h1>
+      <h1 style={headers}>
+        MadHattr
+      </h1>
+      <br/>
+      <h1 style={headers}>
         Hats
       </h1>
       <AddHat />
-      <br/>
+      <br />
       <Hats />
-      <br/>
+      <br />
       <Hat />
-      <br/>
-      <h1>
+      <br />
+      <h1 style={headers}>
         Jackets
       </h1>
       <AddJacket />
-      <br/>
+      <br />
       <Jackets />
-      <br/>
+      <br />
       <Jacket />
-      <br/>
+      <br />
     </div>
   );
 }
