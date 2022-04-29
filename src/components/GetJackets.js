@@ -30,6 +30,7 @@ function Jackets() {
     const handleDelete = async(id) => {
         await axios.delete(`http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets/${id}`)
         alert('Jacket deleted')
+        getAllJackets();
     }
 
     return (
