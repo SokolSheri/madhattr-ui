@@ -5,6 +5,8 @@ import AddJacket from "./components/AddJacket";
 import Hat from "./components/GetSingleHat";
 import Jacket from "./components/GetSingleJacket";
 
+const row ={ display: "flex" }
+const column= { flex: "50%", padding: "10px", height: "300px" }
 function App() {
   return (
     <div>

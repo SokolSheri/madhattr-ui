@@ -1,7 +1,6 @@
 import axios from "axios";
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
-import { color } from "@mui/system";
 
 let tableContainerStyle = {
     overflowY: 'scroll',
@@ -25,13 +24,11 @@ function Hats() {
         tableContainerStyle = {
             overflowY: 'scroll',
             height: 300,
-          
         }
     }
 
-    const handleDelete = async(id) =>{
-        console.log(id);
-        a
+    const handleDelete = async(id) => {
+        await axios.delete(`http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/hats/${id}`)
     }
 
     return (
