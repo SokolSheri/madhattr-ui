@@ -31,7 +31,7 @@ function Hats() {
     const handleDelete = async(id) => {
         await axios.delete(`http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/hats/${id}`)
         alert('Hat deleted')
-  
+        getAllHats();
     }
 
     return (

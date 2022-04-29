@@ -43,6 +43,7 @@ function Jacket() {
 
     const handleDelete = async (id) => {
         await axios.delete(`http://pipelineroute-madhattr.apps.cluster-k4plx.k4plx.sandbox779.opentlc.com/jackets/${id}`)
+        setItem('')
         alert('Jacket deleted');
     }
 
